@@ -28,5 +28,48 @@ const booleanIsLoggedIn = Boolean(isLoggedIn)
 const status = undefined
 const statusInString = String(status)
 
-console.log(statusInString)
-console.log(typeof statusInString)
+// console.log(statusInString)
+// console.log(typeof statusInString)
+
+
+//####################### Operations #########################
+
+// const a = 20;
+// const b = 10;
+
+// console.log(a + b)
+// console.log(a - b)
+// console.log(a * b)
+// console.log(a ** b)
+// console.log(a / b)
+// console.log(a % b)
+
+// const firstName = "Israfil"
+// const lastName = " Mallick"
+
+// const fullName = firstName + lastName
+// console.log(fullName)
+
+console.log("1" + 2)
+console.log(1 + "2")
+console.log("1" + 2 + 2)
+console.log(1 + 2 + "2")
+
+console.log(+true) // 1
+console.log(+"") // 0
+
+
+// prefix and postfix
+
+
+let x = 3;
+const y = x++; // asign the value before the increment
+
+console.log(`x:${x}, y:${y}`);
+// Expected output: "x:4, y:3"
+
+let a = 3;
+const b = ++a; // asign the value after the increment
+
+console.log(`a:${a}, b:${b}`);
+// Expected output: "a:4, b:4"
