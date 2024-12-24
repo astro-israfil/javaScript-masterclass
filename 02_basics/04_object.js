@@ -42,5 +42,21 @@ const anotherNewUser = {...user1, ...userStatus}
 // console.log(Object.entries(tinderUser))
 
 
-console.log(tinderUser.hasOwnProperty("isLoggedIn"))
-console.log(tinderUser.hasOwnProperty("isLoggedOut"))
+// console.log(tinderUser.hasOwnProperty("isLoggedIn"))
+// console.log(tinderUser.hasOwnProperty("isLoggedOut"))
+
+
+const youtubeVideo = {
+    title: "JS tutorial",
+    length: "15 min",
+    creator: "Israfil",
+    views: 0,
+    likes: 0,
+    dislikes: 0,
+}
+
+
+// object destructuring
+// const {title, creator, views} = youtubeVideo
+const {title: videoTitle, creator, views} = youtubeVideo
+console.log(videoTitle, creator, views)
