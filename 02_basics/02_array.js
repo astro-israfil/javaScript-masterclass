@@ -4,9 +4,13 @@ const numbers2 = [4, 5, 6]
 // numbers1.push(numbers2)
 // console.log(numbers1[3][1])
 
-const numbers3 = numbers1.concat(numbers2)
+// const numbers3 = numbers1.concat(numbers2)
+// console.log(numbers3)
 
+// spreading two arrays
+const numbers3 = [...numbers1, ...numbers2]
 console.log(numbers3)
+
 
 const nestedArray = [1, 2, 3, 4, [5, [6, 7]]]
 // console.log(nestedArray[4][1][1])
