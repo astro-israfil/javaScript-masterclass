@@ -10,6 +10,16 @@ if (username) {
 // {}, [], "0", "false", "null", "undefined", true, 1, -1, Infinity, -Infinity, function() {}
 
 
+// 0 == ""
+// true
+// 0 == false
+// true
+// 0 == " "
+// true
+// 0 == "   "
+// true
+
+
 // Nullish Coalescing Operator (??)
 
 const temperature = null
