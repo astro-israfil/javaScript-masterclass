@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days of the Week</title>
+    <style>
+        .mark {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body style="background-color: #161414; color: #fefefe;">
+    <div class="parent">
+        <div class="day">Sunday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+        <div class="day">Saturday</div>
+    </div>
+
+    <script>
+        const parentDiv = document.querySelector('.parent');
+        console.log(parentDiv.children); // HTMLCollection
+
+        parentDiv.children[2].style.backgroundColor = 'green';
+
+        parentDiv.children[4].classList.add('mark');
+
+        // for (const child of parentDiv.children) {
+        //     console.log(child.textContent);
+        //     if (child.textContent === 'Friday') {
+        //         child.textContent += ' weekend';
+        //     }
+        // }
+
+        console.log(parentDiv.firstElementChild.innerText); // Sunday
+        console.log(parentDiv.lastElementChild.innerText); // Saturday
+
+
+        const firstDay = parentDiv.firstElementChild;
+        console.log(firstDay);
+
+        const parent = firstDay.parentElement;
+        console.log(parent);
+
+        const nextDay = firstDay.nextElementSibling;
+        console.log(nextDay);
+
+        const previousDay = nextDay.previousElementSibling;
+        console.log(previousDay);
+
+        const childNodes = parentDiv.childNodes;
+        console.log(childNodes);
+    </script>
+</body>
+</html>

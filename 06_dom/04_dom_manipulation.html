@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation with javaScript</title>
+</head>
+<body>
+    <h1>DOM manipulation with javaScript</h1>
+    <ul class="programming-lang">
+        <li>JavaScript</li>
+    </ul>
+
+    <script>
+        
+        function addProgrammingLang(lang) {
+            const ul = document.querySelector('.programming-lang');
+            const li = document.createElement('li');
+            li.textContent = lang;
+            ul.appendChild(li);
+        }
+
+        addProgrammingLang('React');
+        addProgrammingLang('Vue');
+
+        function editProgrammingLang(oldLang, newLang) {
+            const lis = document.querySelectorAll('li');
+            const li = Array.from(lis).find(li => li.textContent === oldLang);
+            if (li) {
+                li.textContent = newLang;
+            }
+        }
+
+        editProgrammingLang('Vue', 'Angular');
+        editProgrammingLang('JavaScript', 'TypeScript');
+        editProgrammingLang('React', 'Dart');
+
+        function removeProgrammingLang(lang) {
+            const lis = document.querySelectorAll('li');
+            const li = Array.from(lis).find(li => li.textContent === lang);
+            if (li) {
+                li.remove();
+            }
+        }
+
+        removeProgrammingLang('TypeScript');
+        
+        addProgrammingLang('TypeScript');
+    </script>
+</body>
+</html>

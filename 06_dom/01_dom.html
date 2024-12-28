@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+    <style>
+        .bg-dark {
+            background-color: #343a40;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div>
+        <h1 id="title" class="heading">Document Object Model <span style="display: none;">Learning</span></h1>
+        <p>El DOM es una interfaz de programación de aplicaciones (API) para documentos HTML y XML. Define la estructura lógica de los documentos y la forma en que se accede y manipula un documento.</p>
+        <p>El DOM representa el documento como nodos y objetos. Eso permite a los programadores agregar, eliminar y modificar partes de la página web.</p>
+        <p>El DOM es una representación del documento que se puede programar. El DOM es una interfaz de programación de aplicaciones (API) para documentos HTML y XML. El DOM representa el documento como nodos y objetos. Eso permite a los programadores agregar, eliminar y modificar partes de la página web.</p>
+
+        <ul>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Vue</li>
+            <li>Angular</li>
+        </ul>
+    </div>
+
+
+    <script>
+        // HTML element selection
+        // select an element by its id
+        const title = document.getElementById('title');
+        console.log(title);
+
+        // select all elements with the class name (HTMLCollection)
+        const heading = document.getElementsByClassName('heading');
+        console.log(heading);
+
+        // p elements collection (HTMLCollection)
+        const paragraphs = document.getElementsByTagName('p');
+        console.log(paragraphs);
+
+        // select the first ul element
+        const ul = document.querySelector('ul');
+        console.log(ul);
+
+        // select all li elements in the ul element (NodeList)
+        const lis = document.querySelectorAll('li');
+        console.log(lis);
+
+        // select the first li element in the ul element
+        const firstLi = document.querySelector('ul li');
+        console.log(firstLi);
+    </script>
+</body>
+</html>
