@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <ul class="images">
+        <li><img id="1" src="https://via.placeholder.com/150" alt="Random Image 1"></li>
+        <li><img id="2" src="https://via.placeholder.com/150" alt="Random Image 2"></li>
+        <li><img id="3" src="https://via.placeholder.com/150" alt="Random Image 3"></li>
+        <li><img id="4" src="https://via.placeholder.com/150" alt="Random Image 4"></li>
+        <li><img id="5" src="https://via.placeholder.com/150" alt="Random Image 5"></li>
+        <li><img id="6" src="https://via.placeholder.com/150" alt="Random Image 6"></li>
+        <li><img id="7" src="https://via.placeholder.com/150" alt="Random Image 7"></li>
+        <li><img id="8" src="https://via.placeholder.com/150" alt="Random Image 8"></li>
+        <li><img id="9" src="https://via.placeholder.com/150" alt="Random Image 9"></li>
+        <li><img id="10" src="https://via.placeholder.com/150" alt="Random Image 10"></li>
+        <li><a id="google" href="https://www.google.com/">Google</a></li>
+    </ul>
+
+
+    <script>
+        // const image3 = document.getElementById('3');
+        // const images = document.querySelector('.images');
+        
+        // images.addEventListener('click', (event) => {
+        //     console.log("Clicked on images");
+        // }, true); // true: event capturing, false: event bubbling
+
+        // image3.addEventListener('click', (event) => {
+        //     console.log("Clicked on image 3");
+        // }, false); // true: event capturing, false: event bubbling
+
+        // document.getElementById("google").addEventListener('click', (event) => {
+        //     console.log("Clicked on google");
+        //     event.preventDefault();
+        // });
+
+        const images = document.querySelector('.images');
+
+        images.addEventListener('click', (event) => {
+            if (event.target.tagName === 'IMG') {
+                console.log("Clicked on image", event.target.id);
+                event.target.parentNode.remove();
+            }
+        })
+    </script>
+</body>
+
+</html>
