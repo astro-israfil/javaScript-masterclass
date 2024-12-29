@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Changer</title>
+
+    <style>
+        body {
+            height: 100vh;
+            position: relative;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .themeButtons {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .themeBtn {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Theme Changer</h1>
+
+    <div class="themeButtons">
+        <button class="themeBtn" id="green">Green</button>
+        <button class="themeBtn" id="blue">Blue</button>
+        <button class="themeBtn" id="red">Red</button>
+        <button class="themeBtn" id="yellow">Yellow</button>
+        <button class="themeBtn" id="purple">Purple</button>
+    </div>
+
+    <script>
+        const themeBtns = document.querySelectorAll('.themeBtn');
+        const body = document.body;
+
+        themeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                body.style.backgroundColor = btn.id;
+            });
+        });
+    </script>
+</body>
+</html>
