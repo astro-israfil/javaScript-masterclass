@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color</title>
+
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }   
+
+        .action-btn-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            background-color: #aeaea3;
+            color: #232322;
+            font-family: sans-serif;
+            padding: 10px 18px;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="action-btn-container">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+
+    <script>
+        const startButton = document.getElementById("start")
+        const stopButton = document.getElementById("stop")
+        let colorChangeInterval = null
+
+        function generateRandomHexColor() {
+            const hex = "0123456789ABCDEF"
+            let hexColorCode = "#"
+            for (let i = 0; i < 6; i++) {
+                hexColorCode += hex[Math.floor(Math.random() * hex.length)]
+            }
+
+            return hexColorCode;
+        }
+
+
+        function startChangeBackgroundColor() {
+            if (!colorChangeInterval) {
+                colorChangeInterval = setInterval(() => {
+                    document.body.style.backgroundColor = generateRandomHexColor()
+                }, 200)
+            }
+        }
+
+        function stopChangeBackgroundColor() {
+            if (colorChangeInterval) {
+                clearInterval(colorChangeInterval)
+                colorChangeInterval = null
+            }
+        }
+
+        startButton.addEventListener("click", () => {
+            startChangeBackgroundColor()
+        }, false)
+
+        stopButton.addEventListener("click", () => {
+            stopChangeBackgroundColor()
+        }, false)
+    </script>
+</body>
+</html>
