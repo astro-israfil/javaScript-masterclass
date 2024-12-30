@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typer mode with javaScript</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            background-color: #637afc;
+            background-image: linear-gradient(blue, green);
+            background-size: cover;
+            min-height: 100vh;
+            color: #f3f3f3;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 600;
+            font-family: sans-serif;
+            max-width: 550px;
+            line-height: 5.5rem;
+            text-align: center;
+            margin-inline: auto;
+        }
+
+        button {
+            padding: 8px 12px;
+            color: #fefefe;
+            background-color: #121212;
+            outline: 0;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        #hero-container {
+            min-height: 300px;
+        }
+        .cta-btn-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="hero-container">
+        <h1>
+            <span id="text"></span>
+        </h1>
+    </div>
+
+    <div class="cta-btn-container">
+        <button id="stop">STOP</button>
+        <button id="start">START</button>
+    </div>
+    <script>
+        const stopButton = document.getElementById("stop")
+        const startButton = document.getElementById("start")
+        const heading = document.getElementById("text")
+
+        const titles = [
+            "Hello there, I am a Software Developer", 
+            "I do works with Reactjs and Nodejs",
+            "I Love to learn new things and code."
+        ]
+        let index = 0
+        let charIndex = 0
+        let intervalId = null
+        let isStopped = false
+
+        function typeHeading() {
+            if (isStopped) {
+                return
+            }
+            if (charIndex < titles[index].length) {
+                heading.innerHTML += titles[index][charIndex]
+                charIndex++;
+            } else {
+                clearInterval(intervalId)
+                intervalId = null
+                setTimeout(() => {
+                    if (!isStopped) {
+                    heading.innerHTML = ""
+                    index = (index + 1) % titles.length
+                    charIndex = 0
+
+                    intervalId = setInterval(typeHeading, 100)
+                    }
+                }, 2000)
+            }
+        }
+        intervalId = setInterval(typeHeading, 100)
+
+        stopButton.addEventListener("click", () => {
+            clearInterval(intervalId)
+            isStopped = true
+        })
+
+        startButton.addEventListener("click", () => {
+            isStopped = false
+            intervalId = setInterval(typeHeading, 100)
+        })
+        
+    </script>
+</body>
+</html>
