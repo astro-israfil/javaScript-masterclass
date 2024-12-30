@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX || Asynchronous JavaScript And XML</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            display: flex;
+            gap: 80px;
+        }
+
+        .text-content {
+            max-width: 500px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: fit-content;
+            margin-top: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-title {
+            margin: 0;
+            padding: 16px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #212121;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-content">
+        <h1>XMLHttpRequest</h1>
+        <h2>The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client
+            exists in
+            one of the following states:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Value</th>
+                    <th>State</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>UNSENT</td>
+                    <td>Client has been created. <code>open()</code> not called yet.</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>OPENED</td>
+                    <td><code>open()</code> has been called.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HEADERS_RECEIVED</td>
+                    <td><code>send()</code> has been called, and headers and status are available.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>LOADING</td>
+                    <td>Downloading; <code>responseText</code> holds partial data.</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>DONE</td>
+                    <td>The operation is complete.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/300" alt="Card Image" class="card-image">
+        <h2 class="card-title">Card Title</h2>
+    </div>
+
+    <script>
+        const uri = "https://api.github.com/users/astro-israfil"
+        const xmlRequest = new XMLHttpRequest()
+
+        xmlRequest.open("GET", uri)
+        xmlRequest.send()
+        xmlRequest.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                const data = JSON.parse(this.responseText);
+
+                const card = document.querySelector(".card")
+                const img = card.firstElementChild
+                const title = img.nextElementSibling
+
+                img.setAttribute("src", data.avatar_url);
+                title.textContent = data.login
+            }
+        }
+    </script>
+</body>
+
+</html>
