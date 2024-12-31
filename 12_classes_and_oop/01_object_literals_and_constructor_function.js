@@ -24,3 +24,6 @@ const user2 = new User("imisr", "imisr@gmail.com")
 const user3 = new User("israfil", "israfil@gmail.com")
 
 console.log(user2)
+
+
+// https://chatgpt.com/share/6773b1bf-eb34-8004-9ac4-aecb0f7b1922
