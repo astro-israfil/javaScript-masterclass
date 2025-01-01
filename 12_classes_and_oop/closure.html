@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+
+<body style="background-color: #212121;">
+    <button id="green">Green</button>
+    <button id="blue">Blue</button>
+
+    <script>
+        // example of closure
+
+        function outer() {
+            const username = "israfil"
+
+            return function inner() {
+                console.log(username)
+            }
+        }
+
+        const innerfunc = outer()
+
+        innerfunc()
+
+
+        // example of closure
+        function handleClick(color) {
+
+            return function () {
+                document.body.style.backgroundColor = color;
+            }
+        }
+
+        document.getElementById("green").onclick = handleClick("green")
+        document.getElementById("blue").onclick = handleClick("blue")
+    </script>
+</body>
+
+</html>
